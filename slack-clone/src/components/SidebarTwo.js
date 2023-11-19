@@ -12,6 +12,6 @@ function Sidebartwo() {
 export default Sidebartwo
 
 const SidebartwoContainer = styled.div`
-    background-color:grey;
+    background-color:#472C4C;
 `
 

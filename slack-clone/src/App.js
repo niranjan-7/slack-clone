@@ -7,6 +7,7 @@ import Header from './components/Header';
 import { styled } from 'styled-components';
 import SidebarOne from './components/SidebarOne';
 import Sidebartwo from './components/SidebarTwo';
+import ChatBox from './components/ChatBox';
 
 
 function App() {
@@ -25,11 +26,7 @@ function App() {
             <BodyContainer>
               <SidebarOne />
               <Sidebartwo />
-              <Routes>
-                <Route path='/' exact>
-                  {/* Chat */}
-                </Route>
-              </Routes>
+              <ChatBox/>
             </BodyContainer>
 
           </>

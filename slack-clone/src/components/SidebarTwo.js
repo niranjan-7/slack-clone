@@ -186,27 +186,7 @@ const SidebartwoContainer = styled.div`
     flex:display;
     flex-direction:column;
     overflow:auto;
-    /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: #000000 #d1d1d1;
-  }
-
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: #d1d1d1;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border-radius: 5px;
-    border: 2px groove #e3e3e3;
-  }
+    
 
 
 

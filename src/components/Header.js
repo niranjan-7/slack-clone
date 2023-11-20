@@ -1,10 +1,10 @@
 import React from 'react'
 import { styled } from 'styled-components'
-import AccessTimeIcon from '@material-ui/icons/AccessTime'
-import SearchIcon from '@material-ui/icons/Search'
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
-import ArrowBack  from '@material-ui/icons/ArrowBack'
-import  ArrowForward  from '@material-ui/icons/ArrowForward'
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import SearchIcon from '@mui/icons-material/Search';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import ArrowBack  from '@mui/icons-material/ArrowBack'
+import  ArrowForward  from '@mui/icons-material/ArrowForward'
 function Header() {
   return (
     <HeaderContainer>

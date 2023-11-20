@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
-import AccountBox from '@material-ui/icons/AccountBox';
-import { Headset } from '@material-ui/icons';
-import CloseIcon from '@material-ui/icons/Close';
-import FaceIcon from '@material-ui/icons/Face';
+import FaceIcon from '@mui/icons-material/Face';
 
 function DirectMessages({ selectedUser }) {
   const [messages, setMessages] = useState([

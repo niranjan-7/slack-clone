@@ -1,10 +1,10 @@
 import React from 'react'
 import { styled } from 'styled-components'
-import HomeIcon from '@material-ui/icons/Home'
-import ChatIcon from '@material-ui/icons/Chat'
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
+import HomeIcon from '@mui/icons-material/Home'
+import ChatIcon from '@mui/icons-material/Chat'
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import { useNavigate } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 

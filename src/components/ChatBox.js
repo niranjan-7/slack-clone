@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
-import AccountBox from '@material-ui/icons/AccountBox';
-import { Headset } from '@material-ui/icons';
-import CloseIcon from '@material-ui/icons/Close';
-import FaceIcon from '@material-ui/icons/Face';
+import AccountBox from '@mui/icons-material/AccountBox';
+import Headset from '@mui/icons-material/Headset';
+import CloseIcon from '@mui/icons-material/Close';
+import FaceIcon from '@mui/icons-material/Face';
 
 function ChatBox() {
   const [messages, setMessages] = useState([

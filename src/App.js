@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import DirectMessagePage from './pages/DirectMessagePage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path='/login' element={<LoginPage />} />
           <Route path='/signup' element={<SignupPage />} />
           <Route path='/homepage' element={<HomePage />} />
+          <Route path='/dms' element={<DirectMessagePage />} />
 
           <Route
             path='/'

@@ -8,24 +8,24 @@ import FaceIcon from '@material-ui/icons/Face';
 function ChatBox() {
   const [messages, setMessages] = useState([
     {
-      username: 'virat',
-      message: 'Hi',
-      timestamp: '4:53:28 AM',
+      username: 'Virat Kohli',
+      message: 'Hi everyone',
+      timestamp: '4:52:18 AM',
     },
     {
-      username: 'Kamal',
-      message: 'Hola',
-      timestamp: '4:53:28 AM',
+      username: 'Kamal Haasan',
+      message: 'Hola amigos',
+      timestamp: '4:53:47 AM',
     },
     {
-      username: 'Kane',
-      message: 'Hey ',
-      timestamp: '4:53:28 AM',
+      username: 'Harry Kane',
+      message: 'Hey mate',
+      timestamp: '4:55:51 AM',
     },
     {
-      username: 'Ney',
-      message: 'Yo',
-      timestamp: '4:53:28 AM',
+      username: 'Neymar Jr',
+      message: 'Yo guys',
+      timestamp: '4:59:28 AM',
     },
   ]);
 
@@ -38,17 +38,19 @@ function ChatBox() {
   };
 
   const handleAddMessage = () => {
-    setMessages([
-      ...messages,
-      {
-        username: 'Niranjan',
-        message: newMessage,
-        timestamp: new Date().toLocaleTimeString(),
-      },
-    ]);
+  if (newMessage.trim() !== '') {
+    const newMessageObj = {
+      username: 'Niranjan',
+      message: newMessage,
+      timestamp: new Date().toLocaleTimeString(),
+    };
 
+    setMessages([...messages, newMessageObj]);
+    setFilteredMessages([...filteredMessages, newMessageObj]);
     setNewMessage('');
-  };
+  }
+};
+
 
   const handleSearchChange = (e) => {
     const searchTerm = e.target.value.toLowerCase();
@@ -81,7 +83,7 @@ function ChatBox() {
 
       <SearchInput
         type="text"
-        placeholder="Search messages and users..."
+        placeholder="Search users or messages"
         value={searchTerm}
         onChange={handleSearchChange}
       />
@@ -90,7 +92,7 @@ function ChatBox() {
         <Message key={index}>
           <UserDetails>
             <FaceIcon />
-            <Username>{msg.username.slice(0, 3)}</Username>
+            <Username>{msg.username}</Username>
             <Timestamp>{msg.timestamp}</Timestamp>
           </UserDetails>
           <MessageContent>{msg.message}</MessageContent>

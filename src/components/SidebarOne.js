@@ -4,9 +4,9 @@ import HomeIcon from '@material-ui/icons/Home'
 import ChatIcon from '@material-ui/icons/Chat'
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import {Avatar }from '@material-ui/core';
 import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
 import { useNavigate } from 'react-router-dom';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 function SidebarOne() {
@@ -52,7 +52,7 @@ const EndContainer = styled.div`
      margin-bottom:20px;
 `
 
-const HeaderAvatar = styled(Avatar)`
+const HeaderAvatar = styled(AccountCircleIcon)`
     cursor:pointer;
 
     :hover{

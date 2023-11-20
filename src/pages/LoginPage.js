@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
+import { useNavigate } from 'react-router-dom';
 import slack from '../assets/Slack-logo-RGB.png';
 import { styled } from 'styled-components';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Use useNavigate for navigation
+  const navigate = useNavigate(); 
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -17,8 +17,7 @@ function LoginPage() {
   };
 
   const handleLogin = () => {
-    // Handle login logic here
-    navigate('/');
+    navigate('/homepage');
   };
 
   const handleSignUp = () => {

@@ -6,8 +6,14 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import {Avatar }from '@material-ui/core';
 import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
+import { useNavigate } from 'react-router-dom';
+
 
 function SidebarOne() {
+const navigate = useNavigate();
+    const handleLogout = () => {
+        navigate('/login');
+    };
   return (
         <SidebarOneContainer>
             <OrganisationLetter>
@@ -33,7 +39,7 @@ function SidebarOne() {
                 <IconWrapper>
                     <AddCircleRoundedIcon />
                 </IconWrapper>
-                <HeaderAvatar />
+                <HeaderAvatar onClick={handleLogout} />
             </EndContainer>
         </SidebarOneContainer>
   )

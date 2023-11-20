@@ -1,29 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-
 
 function App() {
   return (
     <div>
       <Router>
-        
-          <Routes>
-             <Route path='/' exact element={<HomePage />} />
-             <Route path='/login' exact element={<LoginPage />} />
-            <Route path='/signup' exact element={<SignupPage />} />
-          </Routes>
+        <Routes>
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/signup' element={<SignupPage />} />
+          <Route path='/homepage' element={<HomePage />} />
 
-          
-        
+          <Route
+            path='/'
+            element={
+              <>
+                <Navigate to='/login' replace />
+              </>
+            }
+          />
+        </Routes>
       </Router>
     </div>
   );
 }
 
 export default App;
-
-

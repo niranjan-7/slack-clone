@@ -30,13 +30,13 @@ function ChatBox() {
   ]);
 
   const [newMessage, setNewMessage] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleInputChange = (e) => {
     setNewMessage(e.target.value);
   };
 
   const handleAddMessage = () => {
-    // Add the new message to the messages state
     setMessages([
       ...messages,
       {
@@ -48,6 +48,14 @@ function ChatBox() {
 
     setNewMessage('');
   };
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredMessages = messages.filter((msg) =>
+    msg.message.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <ChatBoxContainer>
@@ -65,7 +73,14 @@ function ChatBox() {
         </TopRightSection>
       </TopHeader>
 
-      {messages.map((msg, index) => (
+      <SearchInput
+        type="text"
+        placeholder="Search messages..."
+        value={searchTerm}
+        onChange={handleSearchChange}
+      />
+
+      {filteredMessages.map((msg, index) => (
         <Message key={index}>
           <UserDetails>
             <FaceIcon />
@@ -89,6 +104,11 @@ function ChatBox() {
   );
 }
 
+const SearchInput = styled.input`
+  margin: 10px;
+  padding: 8px;
+`;
+
 const UserDetails = styled.div`
   display: flex;
   align-items: center;
@@ -104,8 +124,8 @@ const Timestamp = styled.div`
 `;
 
 const MessageContent = styled.div`
-  background-color: #F8E8EE;
-  border: 1px solid #D7CCC8;
+  background-color: #f8e8ee;
+  border: 1px solid #d7ccc8;
   padding: 8px;
   margin-top: 5px;
 `;

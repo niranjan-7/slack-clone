@@ -31,6 +31,7 @@ function ChatBox() {
 
   const [newMessage, setNewMessage] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [filteredMessages, setFilteredMessages] = useState(messages);
 
   const handleInputChange = (e) => {
     setNewMessage(e.target.value);
@@ -50,12 +51,17 @@ function ChatBox() {
   };
 
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+    const searchTerm = e.target.value.toLowerCase();
 
-  const filteredMessages = messages.filter((msg) =>
-    msg.message.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+    const filteredMessages = messages.filter(
+      (msg) =>
+        msg.username.toLowerCase().includes(searchTerm) ||
+        msg.message.toLowerCase().includes(searchTerm)
+    );
+
+    setSearchTerm(searchTerm);
+    setFilteredMessages(filteredMessages);
+  };
 
   return (
     <ChatBoxContainer>
@@ -75,7 +81,7 @@ function ChatBox() {
 
       <SearchInput
         type="text"
-        placeholder="Search messages..."
+        placeholder="Search messages and users..."
         value={searchTerm}
         onChange={handleSearchChange}
       />

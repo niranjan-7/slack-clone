@@ -1,3 +1,3 @@
-Implemented a slack clone in React .
+Implemented a slack clone in React for Presidio.
 
 

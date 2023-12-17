@@ -1,27 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import slack from '../assets/Slack-logo-RGB.png';
 import { styled } from 'styled-components';
+import { signInWithGoogle } from '../firebase'; // Import your Firebase authentication function
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 function LoginPage() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, navigate to '/homepage'
+        navigate('/homepage');
+      }
+    });
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+    return () => {
+      // Unsubscribe from the listener when the component unmounts
+      unsubscribe();
+    };
+  }, [navigate]);
 
-  const handleLogin = () => {
-    navigate('/homepage');
-  };
-
-  const handleSignUp = () => {
-    navigate('/signup');
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle(); // Call your Firebase authentication function
+    } catch (error) {
+      // Handle authentication error
+      console.error('Error signing in with Google:', error.message);
+    }
   };
 
   return (
@@ -30,22 +38,9 @@ function LoginPage() {
         <img src={slack} alt="Slack Logo" width="150px" height="40px" />
       </LogoWrapper>
       <LoginForm>
-        <InputLabel>Username</InputLabel>
-        <InputField
-          type="text"
-          placeholder="Enter your username"
-          value={username}
-          onChange={handleUsernameChange}
-        />
-        <InputLabel>Password</InputLabel>
-        <InputField
-          type="password"
-          placeholder="Enter your password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        <LoginButton onClick={handleLogin}>Login</LoginButton>
-        <SignUpButton onClick={handleSignUp}>Sign Up</SignUpButton>
+        <GoogleSignInButton onClick={handleGoogleSignIn}>
+          Sign In with Google
+        </GoogleSignInButton>
       </LoginForm>
     </BodyContainer>
   );
@@ -68,35 +63,14 @@ const LoginForm = styled.div`
   align-items: center;
 `;
 
-const InputLabel = styled.label`
-  margin: 10px 0;
-`;
-
-const InputField = styled.input`
-  padding: 8px;
-  margin-bottom: 15px;
+const GoogleSignInButton = styled.button`
+  background-color: #4285f4;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   width: 200px;
-`;
-
-const LoginButton = styled.button`
-  background-color: #4caf50;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100px;
-  margin-bottom: 10px;
-`;
-
-const SignUpButton = styled.button`
-  background-color: #2196f3;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100px;
 `;
 
 export default LoginPage;

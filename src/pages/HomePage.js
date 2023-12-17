@@ -5,13 +5,13 @@ import Sidebartwo from '../components/SidebarTwo'
 import ChatBox from '../components/ChatBox'
 import { styled } from 'styled-components'
 
-function HomePage() {
+function HomePage({auth}) {
   return (<>
             <Header />
             <BodyContainer>
               <SidebarOne />
               <Sidebartwo />
-              <ChatBox />
+              <ChatBox auth={auth}/>
             </BodyContainer>
   </>
   )

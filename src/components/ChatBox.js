@@ -52,7 +52,6 @@ function ChatBox() {
   const [showNotifications, setShowNotifications] = useState(true);
 
   useEffect(() => {
-    // Check for new messages and add notifications
     const latestMessage = messages[messages.length - 1];
     if (latestMessage) {
       setNotifications([

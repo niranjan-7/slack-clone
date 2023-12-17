@@ -24,12 +24,12 @@ function Notifications({ newMessages, onClose }) {
 function ChatBox() {
   const [messages, setMessages] = useState([
     {
-      username: 'Virat Kohli',
+      username: 'Leo messi',
       message: 'Hi everyone',
       timestamp: '4:52:18 AM',
     },
     {
-      username: 'Kamal Haasan',
+      username: 'Cristiano Ronaldo',
       message: 'Hola amigos',
       timestamp: '4:53:47 AM',
     },

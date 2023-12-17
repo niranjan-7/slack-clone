@@ -12,7 +12,7 @@ function Sidebartwo() {
       const [channelSearchQuery, setChannelSearchQuery] = useState('');
   const [peopleSearchQuery, setPeopleSearchQuery] = useState('');
   const [channels, setChannels] = useState(["general", "random", "channel 1", "channel 2"]);
-  const [people, setPeople] = useState(["Leo Messi", "Neymar", "Virat Kohli", "Harry Kane"]);
+  const [people, setPeople] = useState(["Leo Messi", "Neymar", "Ronaldo", "Harry Kane"]);
   const [newChannel, setNewChannel] = useState('');
   const [newPerson, setNewPerson] = useState('');
 
